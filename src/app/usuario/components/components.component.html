@@ -1,0 +1,35 @@
+<h1 class="text-center">Cadastro de Usuário</h1>
+<form class="container" [formGroup]="form" (ngSubmit)="insert()">
+	<div class="form-group">
+		<label>Nome:</label>
+		<input type="text" class="form-control" name="nome" id="nome" formControlName="nome">	
+	</div>
+	<div class="form-group">
+		<label>E-mail:</label>
+		<input type="email" class="form-control" name="email" id="email" formControlName="email">	
+	</div>
+	<div class="form-group">
+		<label>Celular:</label>
+		<input type="text" class="form-control" name="cel" id="cel" formControlName="cel">	
+	</div>
+	<button type="submit" [disabled]="!form.valid || form.pristine || !form.dirty" class="btn btn-primary">Cadastrar</button>
+</form> 
+
+<h2 class="text-center">Usuários Cadastrados</h2>
+<table class="table table-striped table-hover container">
+	<thead>
+		<tr>
+			<th>Nome</th>
+			<th>E-mail</th>
+			<th>Celular</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr *ngFor="let user of users">
+			<td>{{user.nome}}</td>
+			<td>{{user.email}}</td>
+			<td>{{user.cel}}</td>
+		</tr>
+	</tbody>
+
+</table>
